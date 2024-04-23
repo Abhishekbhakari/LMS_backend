@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Third-Party
 app.use(
   cors({
-    origin:'https://lms-frontend-9di0ndeqc-abhisheks-projects-3276e3cb.vercel.app/',
+    origin:'*',
     credentials: true,
   })
 );
