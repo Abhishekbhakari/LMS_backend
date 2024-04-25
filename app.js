@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Third-Party
 app.use(
   cors({
-    origin:'https://lms-frontend-9608r6h2p-abhisheks-projects-3276e3cb.vercel.app/',
+    origin:"*",
     credentials: true,
   })
 );
@@ -42,11 +42,14 @@ app.use('/api/v1/payments', paymentRoutes);
 app.use('/api/v1', miscRoutes);
 
 // Additional CORS headers
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Credentials', true);
-//   // Add other headers as needed
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header(
+    'Access-Control-Allow-Credentials', true,
+     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  );
+  // Add other headers as needed
+  next();
+});
 
 // Default catch all route - 404
 app.all('*', (_req, res) => {
