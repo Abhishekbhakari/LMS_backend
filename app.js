@@ -42,11 +42,11 @@ app.use('/api/v1/payments', paymentRoutes);
 app.use('/api/v1', miscRoutes);
 
 // Additional CORS headers
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', true);
-  // Add other headers as needed
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Credentials', true);
+//   // Add other headers as needed
+//   next();
+// });
 
 // Default catch all route - 404
 app.all('*', (_req, res) => {
