@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Third-Party
 app.use(
   cors({
-    origin:[process.env.FRONTEND_URL],
+    origin:"https://lms-frontend-pink.vercel.app",
     credentials: true,
   })
 );
@@ -43,15 +43,18 @@ app.use('/api/v1', miscRoutes);
 
 // Additional CORS headers
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', true);
+  res.header(
+    'Access-Control-Allow-Credentials', true,
+     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  );
   // Add other headers as needed
   next();
 });
 
 // Default catch all route - 404
-app.all('*', (_req, res) => {
-  res.status(404).send('OOPS!!! 404 Page Not Found');
-});
+// app.all('*', (_req, res) => {
+//   res.status(404).send('OOPS!!! 404 Page Not Found');
+// });
 
 // Custom error handling middleware
 app.use(errorMiddleware);
