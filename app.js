@@ -52,9 +52,9 @@ app.use((req, res, next) => {
 });
 
 // Default catch all route - 404
-app.all('*', (_req, res) => {
-  res.status(404).send('OOPS!!! 404 Page Not Found');
-});
+// app.all('*', (_req, res) => {
+//   res.status(404).send('OOPS!!! 404 Page Not Found');
+// });
 
 // Custom error handling middleware
 app.use(errorMiddleware);
