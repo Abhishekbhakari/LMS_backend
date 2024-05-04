@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Third-Party
 app.use(
   cors({
-    origin:"*",
+    origin:"https://lms-frontend-pink.vercel.app/",
     credentials: true,
   })
 );
