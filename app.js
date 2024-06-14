@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Third-Party
 app.use(
   cors({
-    origin:"https://lms-frontend-pink.vercel.app",
+    origin: 'https://lms-frontend-pink.vercel.app', // Ensure this is the correct URL of your frontend
     credentials: true,
   })
 );
@@ -43,9 +43,7 @@ app.use('/api/v1', miscRoutes);
 
 // Additional CORS headers
 app.use((req, res, next) => {
-  res.header(
-    'Access-Control-Allow-Credentials', true,
-  );
+  res.header('Access-Control-Allow-Credentials', 'true');
   // Add other headers as needed
   next();
 });
