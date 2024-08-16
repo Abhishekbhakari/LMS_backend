@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Third-Party
 app.use(
   cors({
-    origin:"http://localhost:5173",
+    origin:"https://lms-frontend-pink.vercel.app",
     credentials: true,
   })
 );
@@ -42,13 +42,7 @@ app.use('/api/v1/payments', paymentRoutes);
 app.use('/api/v1', miscRoutes);
 
 // Additional CORS headers
-app.use((req, res, next) => {
-  res.header(
-    'Access-Control-Allow-Credentials', true,
-  );
-  // Add other headers as needed
-  next();
-});
+
 
 // Default catch all route - 404
 app.all('*', (_req, res) => {
